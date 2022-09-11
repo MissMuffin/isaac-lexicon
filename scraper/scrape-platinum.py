@@ -46,7 +46,7 @@ for itemspan in spans:
     item['tags'] = clean_tags
     
     div = itemspan.find('div[class]', first=True)
-    dimclass = div.attrs['class'][2]
+    dimclass = div.attrs['class'][-1]
     cssdef = re.search(f"\.{dimclass}{{([^}}]+)}}", css.text)
     # print(dimclass, cssdef.group(1))
     styles = cssdef.group(1).split(";")
