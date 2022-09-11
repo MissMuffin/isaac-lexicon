@@ -8,10 +8,8 @@ import Items from './items.json';
 import ItemContainer from './ItemContainer';
 
 function App() {
-	
 	const [ currentItem, setCurrentItem ] = React.useState(null);
 	const [ searchInput, setSearchInput ] = React.useState('');
-
 
 	const closeModal = () => {
 		setCurrentItem(null);
@@ -26,23 +24,50 @@ function App() {
 		setSearchInput(text);
 	};
 
+	const searchItems = Items.filter((item) => item.title.toLowerCase().includes(searchInput.toLowerCase()));
 
 	return (
-		<Box>
-			<Container sx={{
-				paddingBottom: '60px'
-			}}>
+		<Container>
+			<h1
+				style={{
+					textAlign: 'center',
+					marginBottom: '0'
+				}}
+			>
+				Isaac Lexicon
+			</h1>
 
+			<Box
+				sx={{
+					paddingBottom: '60px',
+					paddingTop: '25px'
+				}}
+			>
 				<ViewItemModal isOpen={currentItem !== null} onClose={closeModal} item={currentItem} />
-							
-				<ItemContainer items={Items.filter((item) => item.title.toLowerCase().includes(searchInput.toLowerCase()))} onItemClick={handleItemClick}></ItemContainer>
-			
-			</Container>
 
-			<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} >
-				<Navbar onSearchChange={handleSearch}/>
+				<ItemContainer
+					items={searchItems.filter((item) => item.tags.includes('item'))}
+					onItemClick={handleItemClick}
+					title="ITEMS"
+				/>
+
+				<ItemContainer
+					items={searchItems.filter((item) => item.tags.includes('trinket'))}
+					onItemClick={handleItemClick}
+					title="TRINKETS"
+				/>
+
+				<ItemContainer
+					items={searchItems.filter((item) => item.tags.includes('consumable'))}
+					onItemClick={handleItemClick}
+					title="CONSUMABLES"
+				/>
+			</Box>
+
+			<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
+				<Navbar onSearchChange={handleSearch} />
 			</Paper>
-		</Box>
+		</Container>
 	);
 }
 

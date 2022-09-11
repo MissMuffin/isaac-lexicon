@@ -1,3 +1,5 @@
+import './ItemContainer.css';
+
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import * as React from 'react';
@@ -5,22 +7,28 @@ import ViewItemModal from './Modal';
 import { Box, Chip, Container, Divider, Paper } from '@mui/material';
 import ItemImage from './ItemImage';
 
-export default function StandardImageList({ items, onItemClick }) {
-
+export default function StandardImageList({ items, onItemClick, title }) {
 	return (
-		<Container>
-
-			<Divider>
-				<Chip label="ITEMS" />
+		<Box
+			style={{
+				paddingBottom: '30px'
+			}}
+		>
+			<Divider
+				style={{
+					paddingBottom: '20px'
+				}}
+			>
+				<Chip label={title} />
 			</Divider>
-			
-            <ImageList justify="center" alignItems="center" cols={8} rowHeight={60}>
+
+			<ul className="item-image-grid">
 				{items.map((item, i) => (
-					<ImageListItem key={`item-${i}`} onClick={() => onItemClick(item)}>
-						<ItemImage item={item}></ItemImage>
-					</ImageListItem>
+					<li className="item" key={`item-${i}`} onClick={() => onItemClick(item)}>
+						<ItemImage item={item} />
+					</li>
 				))}
-			</ImageList>
-		</Container>
+			</ul>
+		</Box>
 	);
 }
