@@ -60,8 +60,8 @@ for itemspan in spans:
         # print(f"\.{imgclass}{{[^}}]*background:url\(([^)]+)\)")
         if not cssdef:
             continue
-        item["img"]["src"] = cssdef.group(1)
-        break
+        item["img"]["src"] = cssdef.group(1)[3:]
+        
 
     # Parse UL, i.e type, item pool, 
     ps = itemspan.find('ul > p')
