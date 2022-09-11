@@ -39,13 +39,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: '100%'
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({onSearchChange}) {
     
-	const [searchValue, setSearchValue] = React.useState('');
-
     const handleChange = ({ target: { name, value } }) => {
-       console.log(value);
-	   setSearchValue(searchValue);
+		onSearchChange(value);
      }
 
 	return (

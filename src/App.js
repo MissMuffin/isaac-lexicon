@@ -10,6 +10,7 @@ import ItemContainer from './ItemContainer';
 function App() {
 	
 	const [ currentItem, setCurrentItem ] = React.useState(null);
+	const [ searchInput, setSearchInput ] = React.useState('');
 
 
 	const closeModal = () => {
@@ -20,13 +21,11 @@ function App() {
 		setCurrentItem(item);
 	};
 
-// 	const lorem = (
-// 		<p onClick={openModal}>
-// 			{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id dignissim justo.
-//    Nulla ut facilisis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-//    Sed malesuada lobortis pretium.`}
-// 		</p>
-// 	);
+	const handleSearch = (text) => {
+		console.log(text);
+		setSearchInput(text);
+	};
+
 
 	return (
 		<Box>
@@ -36,12 +35,12 @@ function App() {
 
 				<ViewItemModal isOpen={currentItem !== null} onClose={closeModal} item={currentItem} />
 							
-				<ItemContainer items={Items} onItemClick={handleItemClick}></ItemContainer>
+				<ItemContainer items={Items.filter((item) => item.title.toLowerCase().includes(searchInput.toLowerCase()))} onItemClick={handleItemClick}></ItemContainer>
 			
 			</Container>
 
 			<Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} >
-				<Navbar />
+				<Navbar onSearchChange={handleSearch}/>
 			</Paper>
 		</Box>
 	);
