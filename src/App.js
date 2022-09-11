@@ -1,11 +1,11 @@
 import './App.css';
 
-import { Box, Chip, Container, Divider, Paper } from '@mui/material';
+import { Box, Container, Paper } from '@mui/material';
 import * as React from 'react';
+import ItemContainer from './ItemContainer';
+import Items from './items.json';
 import ViewItemModal from './Modal';
 import Navbar from './Navbar';
-import Items from './items.json';
-import ItemContainer from './ItemContainer';
 
 function App() {
 	const [ currentItem, setCurrentItem ] = React.useState(null);

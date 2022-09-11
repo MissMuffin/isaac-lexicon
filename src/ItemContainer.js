@@ -1,10 +1,7 @@
 import './ItemContainer.css';
 
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import { Box, Chip, Divider } from '@mui/material';
 import * as React from 'react';
-import ViewItemModal from './Modal';
-import { Box, Chip, Container, Divider, Paper } from '@mui/material';
 import ItemImage from './ItemImage';
 
 export default function StandardImageList({ items, onItemClick, title }) {
