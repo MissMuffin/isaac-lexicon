@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc09fa61.css",
-    "main.js": "/static/js/main.0d0ae587.js",
-    "index.html": "/index.html",
-    "main.bc09fa61.css.map": "/static/css/main.bc09fa61.css.map",
-    "main.0d0ae587.js.map": "/static/js/main.0d0ae587.js.map"
+    "main.css": "/isaac-lexicon/static/css/main.bc09fa61.css",
+    "main.js": "/isaac-lexicon/static/js/main.6fa810a8.js",
+    "index.html": "/isaac-lexicon/index.html",
+    "main.bc09fa61.css.map": "/isaac-lexicon/static/css/main.bc09fa61.css.map",
+    "main.6fa810a8.js.map": "/isaac-lexicon/static/js/main.6fa810a8.js.map"
   },
   "entrypoints": [
     "static/css/main.bc09fa61.css",
-    "static/js/main.0d0ae587.js"
+    "static/js/main.6fa810a8.js"
   ]
 }
