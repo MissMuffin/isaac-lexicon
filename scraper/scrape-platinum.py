@@ -43,7 +43,18 @@ for itemspan in spans:
         tag = tag.strip()
         if tag:  
             clean_tags.append(tag)
+
+    # add tag if item, trinket or consumable
+    iid = item['id']
+    if not iid or 'Card' in iid:
+        clean_tags.append('consumable')
+    elif 'Item' in iid:
+        clean_tags.append('item')
+    elif 'Trinket' in iid:
+        clean_tags.append('trinket')
+
     item['tags'] = clean_tags
+
     
     div = itemspan.find('div[class]', first=True)
     dimclass = div.attrs['class'][-1]
